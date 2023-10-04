@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input_text">
+    <button id="add_button">추가</button>
+    <div>
+        <ul id="checklist"></ul>
+    </div>
+
+    <script>
+        // var input_text = document.querySelector('#input_text');
+        // var checklist = documnet.querySelector('#checklist');
+        var list = [];
+        var id = 0;
+        document.querySelector('#add_button').onclick = function(){
+            var input_text = document.querySelector('#input_text').value;
+            
+            if(input_text){
+                list.push(`<li id=${id}>${input_text}<a class = "delete" onclick="delete_list(${id})">X</a></li>`);
+                show_lists();
+                id++;
+            }
+            document.querySelector('#input_text').value = "";
+        }
+
+        function toDOM(str){
+            var new_ = document.createElement('div');
+            new_.innerHTML = str;
+            return new_;
+        }
+        function delete_list(id_){
+            var check = null;
+            for(var i=0;i<list.length;i++){
+                check = toDOM(list[i]);
+                if(Number(check.querySelector('li').id) === id_){
+                    list.splice(i,1);
+                    break;
+                }
+            }
+            show_lists();
+        }
+        function show_lists(){
+            document.querySelector('#checklist').innerHTML = "";
+                for(var i=0;i<list.length;i++){
+                    document.querySelector('#checklist').innerHTML += list[i];
+                }
+        }
+    </script>
+</body>
+</html>

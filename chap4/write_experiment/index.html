@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" class="new_write">
+    <button onclick="make_new()">새로운 write 생성</button>
+    <script>document.write("<br>hello");</script>
+    <h1 class="writer">first</h1>
+
+    <script>
+        document.write("hello");
+        function make_new(){
+            let recieved = document.querySelector('.new_write').value;
+
+            if(recieved === null)
+                console.log('null');
+            else if(recieved === undefined)
+                console.log('undefined');
+            else{
+                document.write(recieved + "<br>");
+                document.write(recieved);
+                // document.querySelector('.writer').innerHTML = document.querySelector('.writer').innerHTML+'<br/>' + recieved;
+                console.log(recieved);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p class="now"></p>
+    <script>
+        var clock = ()=>{
+        var now = new Date();
+        document.querySelector('.now').innerHTML = now.toLocaleString();
+        }
+
+        window.onload = ()=>{
+            // clock();
+            setInterval(clock, 1000);
+        }
+
+        // document.write(now.toLocaleString());
+    </script>
+</body>
+</html>
